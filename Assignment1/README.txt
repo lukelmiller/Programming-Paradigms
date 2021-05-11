@@ -1,0 +1,1 @@
+Programming Paradigms Assignment 1. Simple Java "Hello World" starter program.
