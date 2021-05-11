@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Welcome to Luke Miller's Assignment 11 web site!</title>
+	</head>
+	<body bgcolor="white">
+		<h1>Welcome to Luke Miller's Assignment 11 web site!</h1>
+		<br>
+		<h3>If you have an existing account, log in here:</h3>
+		<form name="login" action="assignment11.html" method="get">
+			<label for="user">User name:</label>
+			<input type="text" name="user">
+			<br>
+			<label for="pass">Password:</label>
+			<input type="password" name="pass">
+			</br>
+			<input type="hidden" name="logon" value="true">
+			<input type="submit" value="Login">
+		</form>
+		<br>
+		{% if error %}
+		{{error}}
+		<br>
+		{% endif %}
+		<h3>Otherwise, if you'd like to create an account, please fill out the following form:</h3>
+		<form name="newAccount" action="assignment11.html" method="get">
+			<label for="user">User name:</label>
+			<input type="text" name="user">
+			<br>
+			<label for="pass">Password:</label>
+			<input type="password" name="pass">
+			<br>
+			<label for="fname">First name:</label>
+			<input type="text" name="fname">
+			<br>
+			<label for="lname">Last name:</label>
+			<input type="text" name="lname">
+			<br>
+			<input type="hidden" name="create" value="true">
+			<input type="submit" value="Create Account">
+		</form>
+	</body>
+</html>

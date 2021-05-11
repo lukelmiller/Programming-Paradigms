@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Luke Miller's Assignment 7</title>
+</head>
+<body>
+
+<script>
+
+        var cary;
+        var milesDriven = 0;
+        var totalMilesDriven = 0;
+
+
+        function GasTank(capacity){
+          // var capacity = 0;
+          // var level = 0;
+          if(capacity > 0) {
+			         this.capacity = capacity;
+      		}
+
+          this.getCapacity = function(){
+            return this.capacity;
+          }
+          this.getLevel = function(){
+            return this.level;
+          }
+          this.setLevel = function(level){
+            if(level < 0){
+              this.level = 0;
+            }
+            else if(level > capacity){
+              this.level = capacity;
+            }
+            else{
+              this.level = level;
+            }
+          }
+        }
+
+        function Engine(description, mpg, maxSpeed){
+          // var this.description;
+          // var this.mpg;
+          // var this.maxSpeed;
+
+          if(description.length == 0){
+            this.description = "Generic engine";
+          }
+          else{
+            this.description = description;
+          }
+          if(mpg<0){
+            this.mpg = 0;
+          }
+          else{
+            this.mpg = mpg;
+          }
+          if(maxSpeed < 0){
+            this.maxSpeed = 0;
+          }
+          else{
+            this.maxSpeed = maxSpeed;
+          }
+
+          this.getDescription = function(){
+            return this.description + " (MPG: " + this.mpg + ", Max speed: " + this.maxSpeed + ")";
+          }
+          this.getMPG = function(){
+            return this.mpg;
+          }
+          this.getMaxSpeed = function(){
+            return this.maxSpeed;
+          }
+
+
+        }
+
+        function Car(description, capacity, enggy){
+          // var this.description;
+          // var this.enggy;
+          var x = 0;
+          var y = 0;
+          var gassy;
+
+
+          if(description.length == 0){
+            this.description = "Generic car";
+          }
+          else{
+            this.description = description;
+          }
+          if(enggy == undefined){
+            this.enggy = new Engine("",0,0);
+          }
+          else{
+            this.enggy = enggy;
+          }
+          gassy = new GasTank(capacity);
+
+          this.getDescription = function(){
+
+            var g = parseFloat(gassy.getLevel(), 10);
+            g = g.toFixed(2);
+
+            var xy = x.toFixed(0);
+            var yx = y.toFixed(0);
+
+
+            return  this.description + " (engine: " + this.enggy.getDescription() +"), fuel: " +  g + "/" + gassy.getCapacity() +", location: (" + xy +"," + yx +")";
+          }
+          this.getX = function(){
+            return x;
+          }
+          this.getY = function(){
+            return y;
+          }
+          this.getFuelLevel = function(){
+            return gassy.getLevel();
+          }
+          this.getMPG = function(){
+            return this.enggy.getMPG();
+          }
+          this.fillUp = function(){
+            gassy.setLevel(gassy.getCapacity());
+          }
+          this.getMaxSpeed = function(){
+            return this.enggy.getMaxSpeed();
+          }
+          this.drive = function(distance, xRatio, yRatio){
+            var gas = parseFloat(distance) / parseFloat(this.enggy.getMPG());
+            var ratio = (xRatio * xRatio) + (yRatio*yRatio);
+            ratio = Math.sqrt(ratio);
+
+            if(gas > gassy.getLevel()){
+
+
+              var g = parseFloat((gassy.getLevel() * this.enggy.getMPG()), 10);
+              g = g.toFixed(2);
+
+              var ret = gassy.getLevel() * this.enggy.getMPG();
+
+              alert("Ran out of gas after driving "+ g +" miles.");
+
+              gassy.setLevel(0);
+
+              var lineX = ((xRatio/ratio) * ret);
+              var lineY = ((yRatio/ratio) * ret);
+
+              x = lineX + x;
+              y = lineY + y;
+              return ret;
+            }
+            else{
+
+              var lineX = ((xRatio/ratio) * distance);
+              var lineY = ((yRatio/ratio) * distance);
+
+              x = lineX + x;
+              y = lineY + y;
+
+              gassy.setLevel(gassy.getLevel()-gas);
+                return distance;
+
+            }
+          }
+        }
+
+
+        function createCar() {
+
+          var engy = new Engine(document.getElementById("eDescript").value, document.getElementById("mpg").value, document.getElementById("maxSpeed").value);
+          cary = new Car(document.getElementById("cDescript").value, document.getElementById("fuelCap").value, engy);
+
+
+
+          cary.fillUp();
+          var dis = cary.getDescription()
+          document.getElementById("descript").innerHTML = dis;
+        //  alert(cary.getDescription());
+          document.getElementById("form2").style.display = "block";
+
+
+        }
+        function driveCar(){
+          milesDriven = cary.drive(document.getElementById("distance").value, document.getElementById("xRatio").value, document.getElementById("yRatio").value);
+          totalMilesDriven = milesDriven + totalMilesDriven;
+          var dis = cary.getDescription()
+          document.getElementById("descript2").innerHTML = dis;
+        }
+
+</script>
+
+<h1>Luke Miller's Assignment 7</h1>
+
+<form name="form1" action="/LukeMiller.html" method="post">
+
+  <label for="eDescript">Engine Description:</label>
+  <input type="text" name="eDescript" id="eDescript">
+  <br>
+  <label for="mpg">Miles Per Gallon:</label>
+  <input type="text" name="mpg" id="mpg">
+  <br>
+  <label for="maxSpeed">Max Speed:</label>
+  <input type="text" name="maxSpeed" id="maxSpeed">
+  <br>
+  <label for="cDescript">Car Description:</label>
+  <input type="text" name="cDescript" id="cDescript">
+  <br>
+  <label for="fuelCap">Max Fuel Capacity:</label>
+  <input type="text" name="fuelCap" id="fuelCap">
+  <br>
+  <button onclick="createCar()">Create Car</button>
+  <br>
+  <p id="descript"></p>
+</form>
+
+<br>
+
+<form name="form2" id="form2" style="display: none" action="/LukeMiller.html" method="post">
+
+  <label for="distance">Drive Distance:</label>
+  <input type="text" name="distance" id="distance">
+  <br>
+  <label for="xRatio">X Ratio:</label>
+  <input type="text" name="xRatio" id="xRatio">
+  <br>
+  <label for="yRatio">Y Ratio:</label>
+  <input type="text" name="yRatio" id="yRatio">
+  <br>
+  <button onclick="driveCar()">Drive Car</button>
+  <br>
+  <p id="descript2"></p>
+
+</form>
+
+
+
+
+
+
+
+</body>
+</html>

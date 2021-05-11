@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Assignment 10</title>
+
+	  <script>
+	  function validate() {
+			var guessy = document.getElementById("guess").value;
+			var num = parseInt(guessy);
+			if (num <= 5 && num > 0){
+				return true;
+			}
+			alert("Please enter a number from 1 to 5!!");
+			return false;
+
+	  }
+
+	  </script>
+
+	</head>
+
+	<body>
+    <h1>OH DANG!!</h1>
+    <p>Imagine that.. you guessed {{guess}} and that was WRONG.. I guess you can try again.. good luck though</p>
+
+  	<form method="post" action="assignment10.html" onsubmit="return validate()">
+  		Your guess: <input type="text" name="guess" id = "guess">
+  		<input type="hidden" name="answer" value="{{answer}}">
+  		<input type="submit" value="Guess!">
+  	</form>
+
+	</body>
+</html>

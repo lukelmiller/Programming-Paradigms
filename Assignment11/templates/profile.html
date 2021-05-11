@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{title}}</title>
+	</head>
+
+	<body style="background-color: {{color}}">
+		<h1>{{title}}</h1>
+		<h2>Welcome {{fname}} {{lname}}</h2>
+
+		<p>{{uName}} successfully logged on</p>
+		<br>
+		<img src="{{imgURL}}" width="300px"><br><br>
+
+		<form name="logout" action="assignment11.html" method="get">
+			<input type="hidden" name="logout" value="true"><br>
+			<input type="submit" value="Logout"/>
+		</form>
+		<br>
+		<form name="editAccount" action="assignment11.html" method="get">
+			<input type="hidden" name="user" value="{{uName}}">
+			<label for="fname">First name:</label>
+			<input type="text" name="fname" value="{{fname}}">
+			<br>
+			<label for="lname">Last name:</label>
+			<input type="text" name="lname" value="{{lname}}">
+			<br>
+			<label for="color">Background color:</label>
+			<input type="text" name="color" value="{{color}}"></td>
+			<br>
+			<label for="title">Title:</label>
+			<input type="text" name="title" value="{{title}}">
+			<br>
+			<label for="image">Image:</label>
+			<input type="text" name="image" size="100" value="{{imgURL}}">
+			<br>
+			<input type="hidden" name="edit" value="true">
+			<input type="submit" value="Edit Account">
+
+			{% if error %}
+			<br>
+			{{error}}
+			<br>
+			{% endif %}
+
+		</form>
+	</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<title>Luke Miller's Page</title>
+
+<body style="background-color:#33cccc;">
+<script>
+        function display1() {
+          if(document.getElementById('Yes').checked){
+            document.getElementById('right1').style.display = "block";
+            document.getElementById('wrong1').style.display = "none";
+          }
+          else if (document.getElementById('No').checked || document.getElementById('Car').checked) {
+            document.getElementById('right1').style.display = "none";
+            document.getElementById('wrong1').style.display = "block";
+          }
+        }
+        function display2() {
+          if(document.getElementById('a1').checked){
+            document.getElementById('right2').style.display = "block";
+            document.getElementById('wrong2').style.display = "none";
+          }
+          else if (document.getElementById('a2').checked || document.getElementById('a3').checked || document.getElementById('a4').checked) {
+            document.getElementById('right2').style.display = "none";
+            document.getElementById('wrong2').style.display = "block";
+          }
+        }
+        function display3(){
+          document.getElementById('right3').style.display = "block";
+        }
+
+        function reset(){
+          document.getElementById('right1').style.display = "none";
+          document.getElementById('wrong1').style.display = "none";
+          document.getElementById('right2').style.display = "none";
+          document.getElementById('wrong2').style.display = "none";
+          document.getElementById('right3').style.display = "none";
+          document.getElementById('Yes').checked = false;
+          document.getElementById('No').checked = false;
+          document.getElementById('Car').checked = false;
+          document.getElementById('a1').checked = false;
+          document.getElementById('a2').checked = false;
+          document.getElementById('a3').checked = false;
+          document.getElementById('a4').checked = false;
+          document.getElementById('s').checked = false;
+          document.getElementById('3').checked = false;
+          document.getElementById('x').checked = false;
+          document.getElementById('c').checked = false;
+          document.getElementById('r').checked = false;
+
+        }
+
+</script>
+<h1>Luke Miller's Page</h1>
+<h3>Weclome. We are here to make you feel inferior about your current car. Join us as we look into why you should give up your old trash for new an improved wheel car. <a href="https://www.tesla.com" target="_blank">SPOILERS for your future</a> </h3>
+
+<p>Did you know gas cars require a liquid to even run?</p>
+<input type="radio" id="Yes" name="rhetoricalQ" value="Yes" onclick="display1()">
+<label for="Yes">Yes!</label><br>
+
+<input type="radio" id="No" name="rhetoricalQ" value="No" onclick="display1()">
+<label for="No">No</label><br>
+
+<input type="radio" id="Car" name="rhetoricalQ" value="Car" onclick="display1()">
+<label for="Car">What's a Car?</label>
+
+<p hidden id="right1">CORRECT!</p>
+<p hidden id="wrong1">WRONG!</p>
+
+<br>
+
+<p>How much gas do you put in your car a year?</p>
+
+<input type="radio" id="a2" name="gassy" value="a2" onclick="display2()">
+<label for="a2">I bike everywhere... like even to my vacations...</label><br>
+
+<input type="radio" id="a1" name="gassy" value="a1" onclick="display2()">
+<label for="a1">OMG! SOO Much, How Did You Know?!</label><br>
+
+<input type="radio" id="a3" name="gassy" value="a3" onclick="display2()">
+<label for="a3">I'm never leaving my house cause of Viral Outbreaks</label><br>
+
+<input type="radio" id="a4" name="gassy" value="a4" onclick="display2()">
+<label for="a4">What's a Car?</label>
+
+<p hidden id="right2">CORRECT!</p>
+<p hidden id="wrong2">WRONG!</p>
+
+<br>
+
+<h4>Time To Pick Your Next Car!</h4>
+
+<input type="radio" id="s" name="carry" value="s" onclick="display3()">
+<label for="s"><img src="s.png" alt="Model S" for="s" style="width:40%"></label><br>
+
+<input type="radio" id="3" name="carry" value="3" onclick="display3()">
+<label for="3"><img src="3.png" alt="Model 3" style="width:40%"></label><br>
+
+<input type="radio" id="x" name="carry" value="x" onclick="display3()">
+<label for="x"><img src="x.png" alt="Model X" style="width:40%"></label><br>
+
+<input type="radio" id="c" name="carry" value="c" onclick="display3()">
+<label for="c"> <img src="c.png" alt="CyberTruck" style="width:40%"> </label><br>
+
+<input type="radio" id="r" name="carry" value="r" onclick="display3()">
+<label for="r"> <img src="r.png" alt="Roadster 2" style="width:40%"> </label>
+
+<p hidden id="right3">TRICK QUESTION THEY'RE ALL CORRECT!!!!</p>
+
+<br>
+
+
+
+
+<br>
+<br>
+<a href="https://www.tesla.com" target="_blank">ORDER YOUR NEW CAR NOW</a>
+<button onclick="reset()">RESET</button>
+</body>
+
+
+</html>

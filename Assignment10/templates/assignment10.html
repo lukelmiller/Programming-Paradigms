@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Assignment 10</title>
+
+	  <script>
+	  function validate() {
+			var fname = document.getElementById("fname").value;
+			var lname = document.getElementById("lname").value;
+			if (fname == "" || lname == ""){
+				alert("Please enter your name..");
+				return false;
+			}
+			return true;
+
+	  }
+
+	  </script>
+
+	</head>
+
+	<body>
+		<h1>Welcome to Assignment 10!</h1>
+
+		<p>Do you want to play a game? Fill out the form.</p>
+
+	  <form method="get" action="assignment10.html" onsubmit="return validate()">
+		Your first name: <input type="text" name="fname" id="fname" value="Luke"><br>
+		Your last name: <input type="text" name="lname" id="lname" value="Miller"><br>
+		<input type="submit" value="Submit">
+	</form>
+	</body>
+</html>

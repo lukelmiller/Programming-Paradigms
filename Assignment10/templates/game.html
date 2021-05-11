@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Assignment 10</title>
+
+	  <script>
+	  function validate() {
+			var guessy = document.getElementById("guess").value;
+			var num = parseInt(guessy);
+			if (num <= 5 && num > 0){
+				return true;
+			}
+			alert("Please enter a number from 1 to 5!!");
+			return false;
+
+	  }
+
+	  </script>
+
+	</head>
+
+	<body>
+    <h1>Hey There {{fname}} {{lname}}</h1>
+  	<p>Guess between from 1 to 5.. Or else</p>
+  	<form method="post" action="assignment10.html" onsubmit="return validate()">
+  		Your guess: <input type="text" name="guess" id = "guess">
+  		<input type="hidden" name="answer" value="{{answer}}">
+  		<input type="submit" value="Guess!">
+  	</form>
+
+	</body>
+</html>

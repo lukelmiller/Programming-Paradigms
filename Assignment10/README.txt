@@ -1,0 +1,1 @@
+Programming Paradigms Assignment 10. Python and flask assignment. Learning about the different method calls from the server perspective. Server-side coding practice.  
