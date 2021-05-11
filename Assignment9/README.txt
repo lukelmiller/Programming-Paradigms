@@ -1,1 +1,1 @@
-Programming Paradigms Assignment 9. Python I/O and dictionary practice assignment. Learning about python and its quirks as a language.
+Programming Paradigms Assignment 9. Python I/O and dictionary practice assignment. Learning about python and its quirks as a language. Takes in two txt files one removes words from the first. Then from the first determine the most frequently occurring word pairs.
