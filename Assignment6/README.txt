@@ -1,1 +1,1 @@
-Programming Paradigms Assignment 6. Simple html/javascript form validation assignment. 
+Programming Paradigms Assignment 6. Simple html form validation assignment. Simple quiz website. 
