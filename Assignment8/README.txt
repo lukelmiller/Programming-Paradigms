@@ -1,1 +1,1 @@
-Programming Paradigms Assignment 8. Javascript functions idiosyncrasies practice with recursive calling in javascript.
+Programming Paradigms Assignment 8. Javascript functions idiosyncrasies practice with recursive calling in javascript. Deals with recursion and higher order functions with JavaScript.
