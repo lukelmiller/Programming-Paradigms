@@ -1,1 +1,1 @@
-Programming Paradigms Assignment 1. Simple Java "Hello World" starter program.
+Programming Paradigms Assignment 1. Simple Java starter program, just counts to 1000.
